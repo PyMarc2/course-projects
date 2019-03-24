@@ -54,7 +54,32 @@ class Airplane:
 
 
 # ===== CAS1 - VOL À L'ÉQUILIBRE (1G) ===== #
-
+#     def getWingShearAndMoment(self):
+#         self.getTotalWeight()
+#         self.getApparentWeight()
+#
+#         A = np.linspace(150, 0, self.resolution)[1:]
+#
+#         for i, a in enumerate(A):
+#             shear = self.getWingSectionWeight(a) - self.getAeroLoad(a)
+#             self.shear.append(shear * 4.44822 / 1000)
+#
+#         fig, (ax1, ax2) = plt.subplots(2)
+#         ax1.plot(A, self.shear)
+#         ax1.set_ylabel("Force [kN]")
+#         ax1.set_xlabel("Distance sur l'aile [pouce]")
+#
+#         X, self.shear = list(reversed(A)), list(reversed(self.shear))
+#         Xstep = 150 / (self.resolution-1)
+#
+#         M = [0]
+#         for y in self.shear:
+#             M.append(y*Xstep + M[-1])
+#
+#         ax2.plot(X, M[1:])
+#         ax2.set_ylabel("Moment")
+#
+#         plt.show()
 
 # === Poids apparent de l'avion === #
 
