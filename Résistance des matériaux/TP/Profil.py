@@ -64,8 +64,8 @@ class Airplane:
 
     # ===== CAS1 - VOL À L'ÉQUILIBRE (1G) ===== #
     def getWingShearAndMoment(self):
-        # self.getTotalWeight()
-        # self.getTotalApparentWeight()
+        self.getTotalWeight()
+        self.getTotalApparentWeight()
 
         A = np.linspace(150, 0, self.resolution)[1:]
 
