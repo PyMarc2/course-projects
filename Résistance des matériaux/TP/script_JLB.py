@@ -42,7 +42,7 @@ class AirPlane:
 
         fig, (ax1, ax2) = plt.subplots(2)
         ax1.plot(A, self.V)
-        ax1.set_ylabel("Force [lb]")
+        ax1.set_ylabel("Effort tranchant [lb]")
         ax1.set_xlabel("Distance sur l'aile [po]")
 
         X, self.V = list(reversed(A)), list(reversed(self.V))
@@ -53,7 +53,7 @@ class AirPlane:
             self.M.append(y*Xstep + self.M[-1])
 
         ax2.plot(X, self.M[1:])
-        ax2.set_ylabel("Moment [lbpo]")
+        ax2.set_ylabel("Moment de flexion [lb$\cdot$po]")
 
         plt.show()
 
@@ -130,7 +130,61 @@ class AirPlane:
 
         return coatWeight  # , meanX
 
+    def getInertia(self, x):
+        bh = 3.296 - 1.08967 * x * 10 ** -2
+        Y = bh/2
+        X = (0.08*0.16*bh + 2*((1.648-0.16)/2+0.16)*1.488*0.16)/(0.16*bh + 2*(1.488*0.16))
+        beamCentroid = (X, Y)
+        print("Beam centroid:" + str(beamCentroid))
+
+        Iz = (((1.648*bh**3)/12) + (1.648*bh*((1.648/2) - X))**2) - ((1.488 * ((bh-0.32)**3)/12) + 1.488 * (bh-0.32)*((0.16 + 1.488/2)-X)**2)
+        print("Inertia of beam @ x=%d :" % x + str(Iz))
+
+        return Iz, X, Y
+
+    def getNormalStress(self):
+        X = np.linspace(0, 150, self.resolution)[1:]
+
+        self.normalStress = []
+
+        for i in range(len(X)):
+
+            Iz, A, Y = self.getInertia(X[i])
+            self.normalStress.append((-self.M[i]/2 * Y / Iz)/1000)
+
+        fig, ax1 = plt.subplots(1)
+        ax1.plot(X, self.normalStress)
+        ax1.set_ylabel("Contrainte normale [ksi]")
+        ax1.set_xlabel("Distance sur l'aile [po]")
+        plt.show()
+
+    def getShearStress(self):
+        X = np.linspace(0, 150, self.resolution)[1:]
+        Q = lambda x : (3.296 - 1.08967 * x * 10 ** -2)**2/8 * 0.16 # + 0.16*1.488*((3.296 - 1.08967 * x * 10 ** -2)/2 - 0.08)
+
+        self.shearStress = []
+
+        for i in range(len(X)):
+            Iz, A, Y = self.getInertia(X[i])
+            self.shearStress.append(((self.V[i]/2 * Q(X[i])) / (Iz*0.16))/1000)
+
+        fig, ax1 = plt.subplots(1)
+        ax1.plot(X, self.shearStress)
+        ax1.set_ylabel("Contrainte en cisaillement [ksi]")
+        ax1.set_xlabel("Distance sur l'aile [po]")
+        plt.show()
+
+    def getFactor(self):
+        print(self.normalStress)
+        nS = list(map(abs, self.normalStress))
+        print(nS)
+        normalFactor = 60/max(list(map(abs, self.normalStress)))
+        shearFactor = 25/max(list(map(abs, self.shearStress)))
+        print("Facteur de sécurité normal: %d, Facteur de sécurité cisaillement: %d" % (normalFactor, shearFactor))
 
 plane = AirPlane()
 
 plane.getWingShearAndMoment()
+plane.getNormalStress()
+plane.getShearStress()
+plane.getFactor()
