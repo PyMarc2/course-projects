@@ -137,6 +137,8 @@ class AirPlane:
         beamCentroid = (X, Y)
         print("Beam centroid:" + str(beamCentroid))
 
+        
+
         Iz = (((1.648*bh**3)/12) + (1.648*bh*((1.648/2) - X))**2) - ((1.488 * ((bh-0.32)**3)/12) + 1.488 * (bh-0.32)*((0.16 + 1.488/2)-X)**2)
         print("Inertia of beam @ x=%d :" % x + str(Iz))
 
