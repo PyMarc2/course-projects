@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f15029b7-ad05-4c5f-8881-097d1a0c3b4f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/TP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TP.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script_JLB.py" beforeDir="false" afterPath="$PROJECT_DIR$/script_JLB.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,33 +17,33 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/TP$Profil.coverage" NAME="Profil Coverage Results" MODIFIED="1553986775782" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/TP$test.coverage" NAME="test Coverage Results" MODIFIED="1553970159294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/TP$script_JLB.coverage" NAME="script_JLB Coverage Results" MODIFIED="1553988531512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/TP$Profil.coverage" NAME="Profil Coverage Results" MODIFIED="1553986775782" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/TP$script_JLB.coverage" NAME="script_JLB Coverage Results" MODIFIED="1554131840595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script_JLB.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="139" column="8" lean-forward="true" selection-start-line="139" selection-start-column="8" selection-end-line="139" selection-end-column="8" />
+            <state relative-caret-position="471">
+              <caret line="218" lean-forward="true" selection-start-line="218" selection-end-line="218" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
                 <element signature="e#352#825#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Profil.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="111" column="32" selection-start-line="111" selection-start-column="32" selection-end-line="111" selection-end-column="32" />
-              <folding>
-                <element signature="e#1#365#1" />
-                <element signature="e#367#386#0" expanded="true" />
+                <element signature="e#881#1671#0" />
+                <element signature="e#1786#2065#0" />
+                <element signature="e#2171#2275#0" />
+                <element signature="e#2375#2433#0" />
+                <element signature="e#2556#3130#0" />
+                <element signature="e#3267#3672#0" />
+                <element signature="e#3800#4113#0" />
+                <element signature="e#4237#4502#0" />
+                <element signature="e#4642#4905#0" />
+                <element signature="e#5005#5943#0" />
+                <element signature="e#6051#6467#0" />
+                <element signature="e#6573#7361#0" />
+                <element signature="e#7461#7871#0" />
               </folding>
             </state>
           </provider>
@@ -76,9 +79,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="655" />
-    <option name="y" value="239" />
-    <option name="width" value="750" />
+    <option name="x" value="676" />
+    <option name="width" value="697" />
     <option name="height" value="745" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -86,20 +88,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="TP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TP" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -107,7 +96,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -210,36 +199,47 @@
       <workItem from="1553468513438" duration="9067000" />
       <workItem from="1553863070516" duration="6781000" />
       <workItem from="1553977675867" duration="11891000" />
+      <workItem from="1554081294671" duration="2080000" />
+      <workItem from="1554124511545" duration="6612000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50051000" />
+    <option name="totallyTimeSpent" value="58743000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12846482" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24927536" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.1603467" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3970588" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29951692" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39613527" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32850242" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32850242" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32850242" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32850242" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" id="SciView" order="3" visible="true" weight="0.31130064" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.1301059" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.36811593" />
       <window_info anchor="right" id="Database" order="4" />
     </layout>
     <layout-to-restore>
@@ -273,7 +273,7 @@
     <entry file="file://$PROJECT_DIR$/test.py" />
     <entry file="file://$PROJECT_DIR$/Profil.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="1649">
           <caret line="111" column="32" selection-start-line="111" selection-start-column="32" selection-end-line="111" selection-end-column="32" />
           <folding>
             <element signature="e#1#365#1" />
@@ -284,11 +284,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script_JLB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="139" column="8" lean-forward="true" selection-start-line="139" selection-start-column="8" selection-end-line="139" selection-end-column="8" />
+        <state relative-caret-position="471">
+          <caret line="218" lean-forward="true" selection-start-line="218" selection-end-line="218" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
             <element signature="e#352#825#0" />
+            <element signature="e#881#1671#0" />
+            <element signature="e#1786#2065#0" />
+            <element signature="e#2171#2275#0" />
+            <element signature="e#2375#2433#0" />
+            <element signature="e#2556#3130#0" />
+            <element signature="e#3267#3672#0" />
+            <element signature="e#3800#4113#0" />
+            <element signature="e#4237#4502#0" />
+            <element signature="e#4642#4905#0" />
+            <element signature="e#5005#5943#0" />
+            <element signature="e#6051#6467#0" />
+            <element signature="e#6573#7361#0" />
+            <element signature="e#7461#7871#0" />
           </folding>
         </state>
       </provider>
