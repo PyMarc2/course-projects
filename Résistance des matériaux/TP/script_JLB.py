@@ -12,13 +12,14 @@ Trouver la contrainte dans les cas suivant:
 
 class AirPlane:
     def __init__(self):
-        self.resolution = 1000
+        self.resolution = 2000
 
         self.wingLength = 150
         self.totalWeight = 0
         self.apparentWeight = 10
         self.nervures = np.array([[25, 50, 80.8, 111.5, 150], [7.13, 5.89, 6.86, 3.35, 3.21]])
-        self.wheel = [25, 110]
+        self.wheel = [25, 110] # cas 1 et 2
+        # self.wheel = [25, -1815.93]
         self.bl = 1.648
         self.tl = 0.16
 
@@ -38,7 +39,7 @@ class AirPlane:
         A = np.linspace(150, 0, self.resolution)[1:]
 
         for i, a in enumerate(A):
-            shear = self.getWingSectionWeight(a) - self.getAeroLoad(a)
+            shear = self.getWingSectionWeight(a) - self.getAeroLoad(a) #AeroLoad = 0 lorsque l'avion est au sol (cas 3)
             self.V.append(shear)
 
         fig, (ax1, ax2) = plt.subplots(2)
@@ -49,7 +50,6 @@ class AirPlane:
         X, self.V = list(reversed(A)), list(reversed(self.V))
         Xstep = 150 / (self.resolution-1)
 
-
         for y in self.V:
             self.M.append((y*Xstep + self.M[-1]))
 
@@ -59,20 +59,6 @@ class AirPlane:
         ax2.plot(X, self.M[1:])
         ax2.set_ylabel("Moment de flexion [lb$\cdot$po]")
 
-        plt.show()
-
-    def getBeamStrain(self):
-        # Fonction qui calcule le strain (?!?) dans les longerons
-        X = np.linspace(0, 150, self.resolution)[1:]
-
-        areas = []
-        x = symbols("x")
-        for d in X:
-            areas.append(self.beamAreaFunc.evalf(subs={x: d}))
-
-        strain = np.array(self.V) / (2 * np.array(areas))
-
-        plt.plot(X, strain)
         plt.show()
 
     def getTotalWeight(self):
@@ -96,7 +82,7 @@ class AirPlane:
 
         weight = sum([fuelWeight, beamWeight, coatWeight, nervWeight, wheelWeight])
 
-        return weight
+        return weight*self.chargeFactor
 
     def getFuelVolume(self, a=0, b=150):
         # Fonction qui calcule le volume de carburant pour la section voulue
@@ -153,9 +139,7 @@ class AirPlane:
         
 
         # Iz = (((1.648*bh**3)/12) + (1.648*bh*((1.648/2) - X))**2) - ((1.488 * ((bh-0.32)**3)/12) + 1.488 * (bh-0.32)*((0.16 + 1.488/2)-X)**2)
-        #Iz = 0.0018394*((-20.6*x/150) + 41.2)**3*0.125 + 2*(1.508834*10**(-3)*x + 0.452651 - 0.1365*(-0.0109866*x+3.276)**3)
-        # Iz = (0.0018394 * 0.125 * (((-20.6 / 150) * x) + 41.2) ** 3) + 2 * (((1 / 12) * self.bl * (bh ** 3)) - (
-        #            (1 / 12) * (self.bl - self.tl) * (bh - 2 * self.tl) ** 3))
+        # Iz = 0.0018394*((-20.6*x/150) + 41.2)**3*0.125 + 2*(1.508834*10**(-3)*x + 0.452651 - 0.124*(-0.0109866*x+2.976)**3)
         Iz = (0.0018394 * 0.125 * (((-20.6/150) * x) + 41.2)**3) + 2*(((1/12) * self.bl * (bh**3)) - ((1/12) * (self.bl - self.tl) * (bh - 2*self.tl)**3))
 
         print("Inertia of beam @ x=%d :" % x + str(Iz))
@@ -183,7 +167,7 @@ class AirPlane:
         # Fonction qui calcule et qui trace la contrainte de cisaillement
         X = np.linspace(0, 150, self.resolution)[1:]
         # Q = lambda x : (3.296 - 1.08967 * x * 10 ** -2)**2/8 * 0.16  + 0.16*1.488*((3.296 - 1.08967 * x * 10 ** -2)/2 - 0.08)
-        Q = lambda x : (2.7283447*10**(-7)*x**2 - 2.8982284*10**(-4)*x + 0.0406559)
+        Q = lambda x : 2*(2.414134*10**(-6)*x**2 - 2.75634*10**(-3)*x + 0.5905816)
         #  Q = ((self.bl * self.tl * (beamHeight/2 + self.tl/2)) + (self.tl * (beamHeight/2 - self.tl) * ((beamHeight/2 - self.tl/2)/2)) )* 2
 
         self.shearStress = []
@@ -200,19 +184,14 @@ class AirPlane:
 
     def getFactor(self):
         # Fonction qui calcule le facteur de sécurité
-        normalFactor = np.array(self.normalStress)
-        normalFactor = abs(normalFactor)
-        normalFactor = max(normalFactor)
-        normalFactor = 60*(1/normalFactor)
-        # shearFactor = float(25/(max(abs(np.array(self.shearStress)))))
-        # normalFactor = 60/max(list(map(abs, self.normalStress)))
-        # shearFactor = 25/max(list(map(abs, self.shearStress)))
+        normalFactor = 60/max(list(map(abs, self.normalStress)))
+        shearFactor = 25/max(list(map(abs, self.shearStress)))
         print(normalFactor)
+        print(shearFactor)
 
 plane = AirPlane()
 plane.getWingShearAndMoment()
 plane.getNormalStress()
 plane.getShearStress()
 plane.getFactor()
-plane.getBeamStrain()
 
