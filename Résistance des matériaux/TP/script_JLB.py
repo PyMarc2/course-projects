@@ -23,7 +23,7 @@ class AirPlane:
         self.bl = 1.648
         self.tl = 0.16
 
-        self.chargeFactor = 3
+        self.chargeFactor = 1
     
         self.gravity = 1
         self.pAlum = 0.101
@@ -40,8 +40,8 @@ class AirPlane:
         A = np.linspace(150, 0, self.resolution)[1:]
 
         for i, a in enumerate(A):
-            shear = self.getWingSectionWeight(a) - self.getAeroLoad(
-                a)  # AeroLoad = 0 lorsque l'avion est au sol (cas 3)
+            shear = self.getWingSectionWeight(a) - self.getAeroLoad(a)
+            # AeroLoad = 0 lorsque l'avion est au sol (cas 3)
             self.V.append(shear)
 
         fig, (ax1, ax2) = plt.subplots(2)
@@ -139,8 +139,7 @@ class AirPlane:
         beamCentroid = (X, Y)
         print("Beam centroid:" + str(beamCentroid))
 
-        Iz = (0.0018394 * 0.125 * (((-20.6 / 150) * x) + 41.2) ** 3) + 2 * (
-                    ((1 / 12) * self.bl * (bh ** 3)) - ((1 / 12) * (self.bl - self.tl) * (bh - 2 * self.tl) ** 3))
+        Iz = 17.7288 - 0.173668*x + 0.000565779*x**2 - 6.12796*10**(-7)*x**3
 
         print("Inertia of beam @ x=%d :" % x + str(Iz))
 
@@ -165,7 +164,7 @@ class AirPlane:
     def getShearStress(self):
         # Fonction qui calcule et qui trace la contrainte de cisaillement
         X = np.linspace(0, 150, self.resolution)[1:]
-        Q = lambda x: 2 * (2.414134 * 10 ** (-6) * x ** 2 - 2.75634 * 10 ** (-3) * x + 0.5905816)
+        Q = lambda x: 2 * (0.590582 - 0.00273376*x + 2.37476*10**(-6)*x**2)
 
         self.shearStress = []
 
